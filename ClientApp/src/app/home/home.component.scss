@@ -1,0 +1,103 @@
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .events {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+  
+  .sidenav {
+    background: #004735;
+    width: 220px;
+  }
+  
+  .toolbar {
+    color: rgb(255, 255, 255);
+    height: 7%;
+  }
+  
+  .main {
+    background: rgb(122, 25, 25);
+  }
+  
+  .b1 {
+    border: none;
+    background: #004735;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .b11 {
+    position:absolute;
+    bottom: 1%;
+    left: 0%;
+    border: none;
+    background: #004735;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .mat-icon {
+     vertical-align: middle;
+  }
+  
+
+  
+  .b1:hover {
+    background-color: #005e46; /* Green */
+    color: white;
+  }
+  
+  .b11:hover {
+    background-color: #005e46; /* Green */
+    color: white;
+  }
+  
+  .line { 
+    display: block;
+    width: 70%;
+    color: #005e46;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #003a2b;
+  } 
+  
+  .hamb {
+      color: white;
+  }
+  
+  @media only screen and (max-device-width: 480px) {
+    /* define mobile specific styles come here */
+  .sidenav {
+    background: #004735;
+    width: 210px;
+  }
+  
+  .toolbar {
+    color: rgb(255, 255, 255);
+  }
+  }
+  
+  
+  

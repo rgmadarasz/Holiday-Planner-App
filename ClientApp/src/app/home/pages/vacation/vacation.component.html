@@ -1,0 +1,73 @@
+<div class="container">
+    <button mat-button (click)="showAdder()">
+        <mat-icon class="tab-icon">arrow_drop_down</mat-icon>Add new vacation
+    </button>
+    <div *ngIf="showAdd">
+        <div>
+            <mat-form-field *ngIf="!loadingLocations" id="field-city">
+                <mat-label>City</mat-label>
+                <mat-select [(ngModel)]="selectedCity" name="city" (selectionChange)="selectCity($event)">
+                    <mat-option *ngFor="let city of citylist" [value]="city">
+                        {{city}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showCalendar">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="selectDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-button *ngIf="showAddButton" (click)="addNewVacation()">Book vacation</button>
+
+        </div>
+    </div>
+    <div *ngIf="loadingVacations">
+        Loading...
+    </div>
+    <div *ngIf="!loadingVacations">
+        <div *ngFor="let vac of vacations" align="center">
+            <mat-card class="card-vacation">
+                <mat-card-content class="card-header" [style.background]="'url(' + vac.image + ')'">
+                    <div class="layer">
+                        {{vac.city}}, {{vac.country}}
+                        <span *ngIf="vac.loadingweather" class="span-date">
+                            Date: {{vac.startdate}}
+                        </span>
+                    </div>
+                </mat-card-content>
+                <mat-card-content style="margin-bottom: 0px;">
+
+                    <div *ngIf="!vac.loadingweather">
+                        Loading weather info
+                    </div>
+                    <div *ngIf="vac.loadingweather">
+                        <table class="table-weather">
+                            <th style="width: 100px;"></th>
+                            <th style="width: 100px;"></th>
+                            <th style="width: 100px;"></th>
+                            <th style="width: 100px;"></th>
+                            <th style="width: 100px;"></th>
+                            <tr>
+                                <td *ngFor="let weather of vac.weather">
+                                    {{weather.dt}}<br />
+                                    <div style="height: 40px;">
+                                        <img src='{{ "assets/images/" + weather.weather[0].main + ".png" }}'
+                                            style="height: 40px;" /><br />
+                                    </div>
+                                    {{weather.main.temp}}°C
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </mat-card-content>
+                <mat-card-actions class="card-action">
+                    <button mat-button class="button-tripadvisor" (click)="openTripadvisor(vac.tripadvisor)">Find out
+                        what to do on <img src="assets/images/tripadvisor.png" height="16px"></button>
+                    <button mat-button class="button-disable " (click)="deleteVacation(vac.id)">X</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

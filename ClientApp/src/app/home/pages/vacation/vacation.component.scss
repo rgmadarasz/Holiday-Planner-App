@@ -1,0 +1,80 @@
+.container {
+    background: #cfd8dc;
+    height: 93vh;
+    overflow: scroll;
+}
+
+.card-vacation {
+    max-width: 600px;
+    margin-top: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+
+.card-header {
+    background-color: rgb(33, 36, 36);
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    vertical-align: middle;
+    line-height: 150px;
+    height: 150px;
+    margin-bottom: 0px;
+}
+
+.card-action {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.span-date {
+    position: absolute;
+    bottom: 24%;
+    left: 5px;
+    font-size: 15px;
+}
+
+.button-tripadvisor {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.button-disable {
+    padding-left: 3px;
+    width: 32px!important;
+    min-width: unset!important;
+    padding-right: 3px;
+    float: right;
+}
+
+.table-weather {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.11);
+    height: 100px;
+}
+
+table td {
+    border-left: 2px solid rgb(255, 255, 255);
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+.layer {
+    background-color: rgba(43, 43, 43, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}

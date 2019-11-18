@@ -1,0 +1,33 @@
+﻿<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" [opened]="disableClose" #sidenav mode="side" [(opened)]="opened" id="sidenav1"
+    (opened)="events.push('open!')" (closed)="events.push('close!')">
+    <div style="display: flex; justify-content: center; margin-top: 10px; margin-bottom: 10px;"><img
+        src='/assets/images/logo.png' width="100" height="100"></div>
+    <button class="b1" routerLink="./vacations">
+      <mat-icon class="mat-icon">book</mat-icon>&nbsp; My Vacations
+    </button>
+    <button class="b1" routerLink="./user">
+      <mat-icon class="mat-icon">account_box</mat-icon>&nbsp; User Information
+    </button>
+
+    <hr class="line">
+
+    <button class="b1" routerLink="./about">
+      <mat-icon class="mat-icon">info</mat-icon>&nbsp; About
+    </button>
+    <button class="b11" (click)="logout()">
+      <mat-icon class="mat-icon">arrow_back</mat-icon>&nbsp; Logout
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button class="b2" (click)="sidenav.toggle()">
+        <mat-icon class="hamb">menu</mat-icon>
+      </button>
+      <h1 class="topbar">&nbsp; Vacation Planner</h1>
+    </mat-toolbar>
+      <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

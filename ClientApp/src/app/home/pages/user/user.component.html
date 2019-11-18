@@ -1,0 +1,63 @@
+<div class="container">
+    <mat-tab-group>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="tab-icon">account_circle</mat-icon>
+                About
+            </ng-template>
+            <div *ngIf="loadingInfo">
+                Loading...
+            </div>
+            <div *ngIf="!loadingInfo" class="div-userinfo">
+                User Information
+
+                <table class="table-userinfo">
+                    <th style="width:200px"></th>
+                    <th style="width:200px"></th>
+                    <tr>
+                        <td>Username: </td>
+                        <td>{{userData.username}}</td>
+                    </tr>
+                    <tr>
+                        <td>First name: </td>
+                        <td>{{userData.firstname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Last name: </td>
+                        <td>{{userData.lastname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Join date: </td>
+                        <td>{{userJoinDate}}</td>
+                    </tr>
+                </table>
+            </div>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="tab-icon">card_travel</mat-icon>
+                History
+            </ng-template>
+            <div *ngIf="loadingHistory">
+                Loading...
+            </div>
+            <div *ngIf="!loadingHistory" class="div-history">
+                <div *ngFor="let vac of vacations" align="center" style="margin-top: 30px;">
+                    <mat-card class="card-vacation">
+                        <mat-card-content class="card-header" [style.background]="'url(' + vac.image + ')'">
+                            <div class="layer">
+                                {{vac.city}}, {{vac.country}}
+                                <span class="span-date">
+                                    Date: {{vac.startdate}}
+                                </span>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

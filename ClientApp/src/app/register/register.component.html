@@ -1,0 +1,65 @@
+﻿<div class="div-main">
+    <mat-card>
+        <div>
+            <h2 style="text-align: center;">Vacation Planner</h2>
+            <mat-divider></mat-divider>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <h1 style="text-align: center; margin-top: 30px;">Register</h1>
+            <div align="center">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-login">
+                    <mat-form-field>
+                        <input matInput placeholder="Username" [type]='text' formControlName="username">
+                        <button type="button" mat-icon-button matSuffix>
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'"
+                            formControlName="password">
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Password Again" [type]="!hide ? 'password' : 'text'"
+                            formControlName="passwordagain">
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="First name" [type]='text' formControlName="firstname">
+                        <button type="button" mat-icon-button matSuffix>
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Last name" [type]='text' formControlName="lastname">
+                        <button type="button" mat-icon-button matSuffix>
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-raised-button [disabled]="loading" class="button-login">
+                            <span *ngIf="loading"></span>
+                            Register
+                        </button>
+                    </div>
+                    <div style="margin-top: 6px;" *ngIf="error">{{error}}</div>
+                </form>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="div-register">
+            <a routerLink="/login" style="text-decoration: none;">Go back to login</a>
+        </div>
+    </mat-card>
+</div>
